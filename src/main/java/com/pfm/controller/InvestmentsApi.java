@@ -17,20 +17,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.pfm.dto.Investment;
+
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-15T20:09:14.699Z")
+@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-16T23:53:06.850Z")
 
 @Api(value = "investments", description = "the investments API")
 public interface InvestmentsApi {
 
-    @ApiOperation(value = "Fetch all investments for a user", nickname = "investmentsGet", notes = "", tags={ "investment", })
+    @ApiOperation(value = "Fetch all investments for a user", nickname = "investmentsGet", notes = "", response = Investment.class, responseContainer = "List", tags={ "investment", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Ok. Successfully retrievev all investments"),
+        @ApiResponse(code = 200, message = "Ok. Successfully retrievev all investments", response = Investment.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Bad Request. Invalid user Id") })
     @RequestMapping(value = "/investments",
+        produces = { "application/json", "application/xml" }, 
         method = RequestMethod.GET)
-    ResponseEntity<Void> investmentsGet(@ApiParam(value = "fetch all investments for given user" ,required=true )  @Valid @RequestBody String body);
+    ResponseEntity<List<Investment>> investmentsGet(@ApiParam(value = "fetch all investments for given user" ,required=true )  @Valid @RequestBody String body);
 
 }

@@ -18,11 +18,12 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.pfm.dto.Investment;
+import com.pfm.dto.Transaction;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-15T20:09:14.699Z")
+@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-16T23:53:06.850Z")
 
 @Api(value = "investment", description = "the investment API")
 public interface InvestmentApi {
@@ -32,6 +33,7 @@ public interface InvestmentApi {
         @ApiResponse(code = 200, message = "Investment deleted successfully"),
         @ApiResponse(code = 400, message = "Bad request.") })
     @RequestMapping(value = "/investment/delete",
+        produces = { "application/json", "application/xml" }, 
         method = RequestMethod.DELETE)
     ResponseEntity<Void> investmentDeleteDelete(@ApiParam(value = "" ,required=true )  @Valid @RequestBody String body);
 
@@ -41,16 +43,18 @@ public interface InvestmentApi {
         @ApiResponse(code = 200, message = "investment created succesfully"),
         @ApiResponse(code = 400, message = "bad request. invalid input") })
     @RequestMapping(value = "/investment/new",
+        produces = { "application/json", "application/xml" }, 
         method = RequestMethod.POST)
     ResponseEntity<Void> investmentNewPost(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Investment body);
 
 
-    @ApiOperation(value = "Fetch all transactions for a given investment", nickname = "investmentTransactionsGet", notes = "", tags={ "investment", })
+    @ApiOperation(value = "Fetch all transactions for a given investment", nickname = "investmentTransactionsGet", notes = "", response = Transaction.class, responseContainer = "List", tags={ "investment", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Investment transactions fetched successfully"),
+        @ApiResponse(code = 200, message = "Investment transactions fetched successfully", response = Transaction.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Bad request. Invalid input") })
     @RequestMapping(value = "/investment/transactions",
+        produces = { "application/json", "application/xml" }, 
         method = RequestMethod.GET)
-    ResponseEntity<Void> investmentTransactionsGet(@ApiParam(value = "" ,required=true )  @Valid @RequestBody String body);
+    ResponseEntity<List<Transaction>> investmentTransactionsGet(@ApiParam(value = "" ,required=true )  @Valid @RequestBody String body);
 
 }

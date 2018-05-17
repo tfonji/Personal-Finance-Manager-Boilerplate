@@ -15,14 +15,20 @@ import javax.validation.constraints.*;
  * Transaction
  */
 @Validated
-@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-15T20:09:14.699Z")
+@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-16T23:53:06.850Z")
 
 public class Transaction   {
   @JsonProperty("userId")
   private Long userId = null;
 
+  @JsonProperty("investmentId")
+  private String investmentId = null;
+
   @JsonProperty("amount")
   private BigDecimal amount = null;
+
+  @JsonProperty("description")
+  private String description = null;
 
   @JsonProperty("time")
   private OffsetDateTime time = null;
@@ -51,6 +57,27 @@ public class Transaction   {
     this.userId = userId;
   }
 
+  public Transaction investmentId(String investmentId) {
+    this.investmentId = investmentId;
+    return this;
+  }
+
+  /**
+   * Get investmentId
+   * @return investmentId
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+
+
+  public String getInvestmentId() {
+    return investmentId;
+  }
+
+  public void setInvestmentId(String investmentId) {
+    this.investmentId = investmentId;
+  }
+
   public Transaction amount(BigDecimal amount) {
     this.amount = amount;
     return this;
@@ -71,6 +98,27 @@ public class Transaction   {
 
   public void setAmount(BigDecimal amount) {
     this.amount = amount;
+  }
+
+  public Transaction description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   * @return description
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public Transaction time(OffsetDateTime time) {
@@ -128,14 +176,16 @@ public class Transaction   {
     }
     Transaction transaction = (Transaction) o;
     return Objects.equals(this.userId, transaction.userId) &&
+        Objects.equals(this.investmentId, transaction.investmentId) &&
         Objects.equals(this.amount, transaction.amount) &&
+        Objects.equals(this.description, transaction.description) &&
         Objects.equals(this.time, transaction.time) &&
         Objects.equals(this.date, transaction.date);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, amount, time, date);
+    return Objects.hash(userId, investmentId, amount, description, time, date);
   }
 
   @Override
@@ -144,7 +194,9 @@ public class Transaction   {
     sb.append("class Transaction {\n");
     
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    investmentId: ").append(toIndentedString(investmentId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("}");

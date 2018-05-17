@@ -22,34 +22,34 @@ import com.pfm.dto.User;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-15T20:09:14.699Z")
+@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-16T23:53:06.850Z")
 
 @Api(value = "user", description = "the user API")
 public interface UserApi {
 
-    @ApiOperation(value = "retrieve all users", nickname = "userAllGet", notes = "", tags={ "user", })
+    @ApiOperation(value = "retrieve all users", nickname = "userAllGet", notes = "", response = User.class, responseContainer = "List", tags={ "user", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK") })
+        @ApiResponse(code = 200, message = "Ok. Successfully retrieved all users.", response = User.class, responseContainer = "List") })
     @RequestMapping(value = "/user/all",
-        produces = { "application/xml", "application/json" }, 
+        produces = { "application/json", "application/xml" }, 
         method = RequestMethod.GET)
-    ResponseEntity<Void> userAllGet();
+    ResponseEntity<List<User>> userAllGet();
 
 
-    @ApiOperation(value = "retrieve a user", nickname = "userGet", notes = "", tags={ "user", })
+    @ApiOperation(value = "retrieve a user", nickname = "userGet", notes = "", response = User.class, responseContainer = "List", tags={ "user", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK") })
+        @ApiResponse(code = 200, message = "OK. User retrieved successfully", response = User.class, responseContainer = "List") })
     @RequestMapping(value = "/user",
-        produces = { "application/xml", "application/json" }, 
+        produces = { "application/json", "application/xml" }, 
         method = RequestMethod.GET)
-    ResponseEntity<Void> userGet(@ApiParam(value = "create a new transaction" ,required=true )  @Valid @RequestBody String body);
+    ResponseEntity<List<User>> userGet(@ApiParam(value = "create a new transaction" ,required=true )  @Valid @RequestBody String body);
 
 
     @ApiOperation(value = "create new user", nickname = "userNewPost", notes = "", tags={ "user", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK") })
+        @ApiResponse(code = 200, message = "OK. User created successfully") })
     @RequestMapping(value = "/user/new",
-        produces = { "application/xml", "application/json" }, 
+        produces = { "application/json", "application/xml" }, 
         method = RequestMethod.POST)
     ResponseEntity<Void> userNewPost(@ApiParam(value = "create a new transaction" ,required=true )  @Valid @RequestBody User body);
 

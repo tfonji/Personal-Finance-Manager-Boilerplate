@@ -17,20 +17,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.pfm.dto.Investment;
+
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-15T20:09:14.699Z")
+@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-16T23:53:06.850Z")
 
 @Api(value = "investmentById", description = "the investmentById API")
 public interface InvestmentByIdApi {
 
-    @ApiOperation(value = "Fetch Investment by investment id", nickname = "investmentByIdGet", notes = "", tags={ "investment", })
+    @ApiOperation(value = "Fetch Investment by investment id", nickname = "investmentByIdGet", notes = "", response = Investment.class, responseContainer = "List", tags={ "investment", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Investment fetched successfully"),
+        @ApiResponse(code = 200, message = "Investment fetched successfully", response = Investment.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Bad request. Invalid investment id.") })
     @RequestMapping(value = "/investmentById",
+        produces = { "application/json", "application/xml" }, 
         method = RequestMethod.GET)
-    ResponseEntity<Void> investmentByIdGet(@ApiParam(value = "" ,required=true )  @Valid @RequestBody String body);
+    ResponseEntity<List<Investment>> investmentByIdGet(@ApiParam(value = "" ,required=true )  @Valid @RequestBody String body);
 
 }

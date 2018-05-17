@@ -17,38 +17,62 @@ import javax.validation.constraints.*;
  * User
  */
 @Validated
-@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-15T20:09:14.699Z")
+@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-16T23:53:06.850Z")
 
 public class User   {
-  @JsonProperty("name")
-  private String name = null;
+  @JsonProperty("first_name")
+  private String firstName = null;
 
-  @JsonProperty("userId")
+  @JsonProperty("last_name")
+  private String lastName = null;
+
+  @JsonProperty("user_id")
   private String userId = null;
 
   @JsonProperty("investments")
   @Valid
   private List<Investment> investments = null;
 
-  public User name(String name) {
-    this.name = name;
+  public User firstName(String firstName) {
+    this.firstName = firstName;
     return this;
   }
 
   /**
-   * Get name
-   * @return name
+   * Get firstName
+   * @return firstName
   **/
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
 
-  public String getName() {
-    return name;
+  public String getFirstName() {
+    return firstName;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public User lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+  /**
+   * Get lastName
+   * @return lastName
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
   public User userId(String userId) {
@@ -60,8 +84,7 @@ public class User   {
    * Get userId
    * @return userId
   **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
 
   public String getUserId() {
@@ -111,14 +134,15 @@ public class User   {
       return false;
     }
     User user = (User) o;
-    return Objects.equals(this.name, user.name) &&
+    return Objects.equals(this.firstName, user.firstName) &&
+        Objects.equals(this.lastName, user.lastName) &&
         Objects.equals(this.userId, user.userId) &&
         Objects.equals(this.investments, user.investments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, userId, investments);
+    return Objects.hash(firstName, lastName, userId, investments);
   }
 
   @Override
@@ -126,7 +150,8 @@ public class User   {
     StringBuilder sb = new StringBuilder();
     sb.append("class User {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    investments: ").append(toIndentedString(investments)).append("\n");
     sb.append("}");
