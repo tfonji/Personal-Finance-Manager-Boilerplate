@@ -2,7 +2,7 @@ package com.pfm.controller;
 
 import javax.xml.bind.annotation.XmlTransient;
 
-@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-16T23:53:06.850Z")
+@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-19T00:16:19.389Z")
 
 @javax.xml.bind.annotation.XmlRootElement
 public class ApiResponseMessage {

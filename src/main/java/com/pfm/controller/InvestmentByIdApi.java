@@ -22,18 +22,17 @@ import com.pfm.dto.Investment;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-16T23:53:06.850Z")
+@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-19T00:16:19.389Z")
 
 @Api(value = "investmentById", description = "the investmentById API")
 public interface InvestmentByIdApi {
 
-    @ApiOperation(value = "Fetch Investment by investment id", nickname = "investmentByIdGet", notes = "", response = Investment.class, responseContainer = "List", tags={ "investment", })
+    @ApiOperation(value = "find a unique investment.", nickname = "investmentByIdGet", notes = "retrieve an investment by specifying an investment_id.", response = Investment.class, responseContainer = "List", tags={ "investment", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Investment fetched successfully", response = Investment.class, responseContainer = "List"),
-        @ApiResponse(code = 400, message = "Bad request. Invalid investment id.") })
+        @ApiResponse(code = 200, message = "investment successfully retrieved.", response = Investment.class, responseContainer = "List") })
     @RequestMapping(value = "/investmentById",
-        produces = { "application/json", "application/xml" }, 
+        produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<List<Investment>> investmentByIdGet(@ApiParam(value = "" ,required=true )  @Valid @RequestBody String body);
+    ResponseEntity<List<Investment>> investmentByIdGet(@ApiParam(value = "investment_id for investment to be retrieved." ,required=true )  @Valid @RequestBody String body);
 
 }

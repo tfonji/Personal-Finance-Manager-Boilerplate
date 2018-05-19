@@ -10,7 +10,7 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
-@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-16T23:53:06.850Z")
+@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-19T00:16:19.389Z")
 
 @Configuration
 public class SwaggerDocumentationConfig {
@@ -18,11 +18,11 @@ public class SwaggerDocumentationConfig {
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
             .title("Personal Finance Manager")
-            .description("Simple Personal Finance Management Application")
+            .description("Simple Personal Finance Manager application to track investments")
             .license("MIT")
             .licenseUrl("http://opensource.org/licenses/MIT")
             .termsOfServiceUrl("")
-            .version("0.0.0")
+            .version("1.0.0")
             .contact(new Contact("","", "tembong_fonji@syntelinc.com"))
             .build();
     }

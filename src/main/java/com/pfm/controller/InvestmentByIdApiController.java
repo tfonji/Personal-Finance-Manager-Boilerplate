@@ -21,7 +21,7 @@ import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
-@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-16T23:53:06.850Z")
+@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-19T00:16:19.389Z")
 
 @Controller
 public class InvestmentByIdApiController implements InvestmentByIdApi {
@@ -38,22 +38,13 @@ public class InvestmentByIdApiController implements InvestmentByIdApi {
         this.request = request;
     }
 
-    public ResponseEntity<List<Investment>> investmentByIdGet(@ApiParam(value = "" ,required=true )  @Valid @RequestBody String body) {
+    public ResponseEntity<List<Investment>> investmentByIdGet(@ApiParam(value = "investment_id for investment to be retrieved." ,required=true )  @Valid @RequestBody String body) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<List<Investment>>(objectMapper.readValue("[ {  \"date\" : \"2000-01-23T04:56:07.000+00:00\",  \"amount\" : 0.80082819046101150206595775671303272247314453125,  \"percentageYield\" : 6.02745618307040320615897144307382404804229736328125,  \"investmentType\" : \"investmentType\",  \"userId\" : \"userId\"}, {  \"date\" : \"2000-01-23T04:56:07.000+00:00\",  \"amount\" : 0.80082819046101150206595775671303272247314453125,  \"percentageYield\" : 6.02745618307040320615897144307382404804229736328125,  \"investmentType\" : \"investmentType\",  \"userId\" : \"userId\"} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<List<Investment>>(objectMapper.readValue("[ {  \"end_date\" : \"2000-01-23\",  \"current_investment\" : 1.46581298050294517310021547018550336360931396484375,  \"investment_type\" : \"investment_type\",  \"initial_investment\" : 6.02745618307040320615897144307382404804229736328125,  \"rate\" : 5.962133916683182377482808078639209270477294921875,  \"investment_id\" : 0.80082819046101150206595775671303272247314453125,  \"investor_id\" : \"investor_id\",  \"transactions\" : [ {    \"current_amount\" : 5.63737665663332876420099637471139430999755859375,    \"date\" : \"2000-01-23\",    \"previous_amount\" : 2.3021358869347654518833223846741020679473876953125,    \"investment_id\" : \"investment_id\",    \"description\" : \"description\",    \"time\" : \"time\",    \"investor_id\" : \"investor_id\",    \"transaction_type\" : true  }, {    \"current_amount\" : 5.63737665663332876420099637471139430999755859375,    \"date\" : \"2000-01-23\",    \"previous_amount\" : 2.3021358869347654518833223846741020679473876953125,    \"investment_id\" : \"investment_id\",    \"description\" : \"description\",    \"time\" : \"time\",    \"investor_id\" : \"investor_id\",    \"transaction_type\" : true  } ],  \"investment_details\" : [ \"{}\", \"{}\" ],  \"start_date\" : \"2000-01-23\"}, {  \"end_date\" : \"2000-01-23\",  \"current_investment\" : 1.46581298050294517310021547018550336360931396484375,  \"investment_type\" : \"investment_type\",  \"initial_investment\" : 6.02745618307040320615897144307382404804229736328125,  \"rate\" : 5.962133916683182377482808078639209270477294921875,  \"investment_id\" : 0.80082819046101150206595775671303272247314453125,  \"investor_id\" : \"investor_id\",  \"transactions\" : [ {    \"current_amount\" : 5.63737665663332876420099637471139430999755859375,    \"date\" : \"2000-01-23\",    \"previous_amount\" : 2.3021358869347654518833223846741020679473876953125,    \"investment_id\" : \"investment_id\",    \"description\" : \"description\",    \"time\" : \"time\",    \"investor_id\" : \"investor_id\",    \"transaction_type\" : true  }, {    \"current_amount\" : 5.63737665663332876420099637471139430999755859375,    \"date\" : \"2000-01-23\",    \"previous_amount\" : 2.3021358869347654518833223846741020679473876953125,    \"investment_id\" : \"investment_id\",    \"description\" : \"description\",    \"time\" : \"time\",    \"investor_id\" : \"investor_id\",    \"transaction_type\" : true  } ],  \"investment_details\" : [ \"{}\", \"{}\" ],  \"start_date\" : \"2000-01-23\"} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<List<Investment>>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
-
-        if (accept != null && accept.contains("application/xml")) {
-            try {
-                return new ResponseEntity<List<Investment>>(objectMapper.readValue("<null>  <userId>aeiou</userId>  <investmentType>aeiou</investmentType>  <amount>1.3579</amount>  <percentageYield>1.3579</percentageYield>  <date>2000-01-23T04:56:07.000Z</date></null>", List.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/xml", e);
                 return new ResponseEntity<List<Investment>>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }

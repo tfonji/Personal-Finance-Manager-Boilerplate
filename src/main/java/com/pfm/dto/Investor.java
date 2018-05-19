@@ -2,7 +2,7 @@ package com.pfm.dto;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.pfm.dto.Investment;
+import com.pfm.dto.Portfolio;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -14,26 +14,23 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * User
+ * Investor
  */
 @Validated
-@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-16T23:53:06.850Z")
+@javax.annotation.Generated(value = "com.pfm.codegen.languages.SpringCodegen", date = "2018-05-19T00:16:19.389Z")
 
-public class User   {
+public class Investor   {
   @JsonProperty("first_name")
   private String firstName = null;
 
   @JsonProperty("last_name")
   private String lastName = null;
 
-  @JsonProperty("user_id")
-  private String userId = null;
-
-  @JsonProperty("investments")
+  @JsonProperty("portfolio")
   @Valid
-  private List<Investment> investments = null;
+  private List<Portfolio> portfolio = null;
 
-  public User firstName(String firstName) {
+  public Investor firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -54,7 +51,7 @@ public class User   {
     this.firstName = firstName;
   }
 
-  public User lastName(String lastName) {
+  public Investor lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -75,53 +72,33 @@ public class User   {
     this.lastName = lastName;
   }
 
-  public User userId(String userId) {
-    this.userId = userId;
+  public Investor portfolio(List<Portfolio> portfolio) {
+    this.portfolio = portfolio;
     return this;
   }
 
-  /**
-   * Get userId
-   * @return userId
-  **/
-  @ApiModelProperty(value = "")
-
-
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public User investments(List<Investment> investments) {
-    this.investments = investments;
-    return this;
-  }
-
-  public User addInvestmentsItem(Investment investmentsItem) {
-    if (this.investments == null) {
-      this.investments = new ArrayList<Investment>();
+  public Investor addPortfolioItem(Portfolio portfolioItem) {
+    if (this.portfolio == null) {
+      this.portfolio = new ArrayList<Portfolio>();
     }
-    this.investments.add(investmentsItem);
+    this.portfolio.add(portfolioItem);
     return this;
   }
 
   /**
-   * Get investments
-   * @return investments
+   * Get portfolio
+   * @return portfolio
   **/
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public List<Investment> getInvestments() {
-    return investments;
+  public List<Portfolio> getPortfolio() {
+    return portfolio;
   }
 
-  public void setInvestments(List<Investment> investments) {
-    this.investments = investments;
+  public void setPortfolio(List<Portfolio> portfolio) {
+    this.portfolio = portfolio;
   }
 
 
@@ -133,27 +110,25 @@ public class User   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    User user = (User) o;
-    return Objects.equals(this.firstName, user.firstName) &&
-        Objects.equals(this.lastName, user.lastName) &&
-        Objects.equals(this.userId, user.userId) &&
-        Objects.equals(this.investments, user.investments);
+    Investor investor = (Investor) o;
+    return Objects.equals(this.firstName, investor.firstName) &&
+        Objects.equals(this.lastName, investor.lastName) &&
+        Objects.equals(this.portfolio, investor.portfolio);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, userId, investments);
+    return Objects.hash(firstName, lastName, portfolio);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class User {\n");
+    sb.append("class Investor {\n");
     
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    investments: ").append(toIndentedString(investments)).append("\n");
+    sb.append("    portfolio: ").append(toIndentedString(portfolio)).append("\n");
     sb.append("}");
     return sb.toString();
   }
